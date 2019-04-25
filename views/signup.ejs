@@ -1,0 +1,53 @@
+<% include ./partials/header %>
+<div class="container1">
+<div class="ui middle aligned center aligned grid">
+  <div class="column">
+    <h2 class="ui teal image header">
+      <div class="content" style="color:rgb(65, 127, 186);">
+      <img src="../images/title.png" alt="opps" style="width:40px;height:40px;display:inline;">
+       &nbsp;&nbsp;Got an Idea? Create Account
+      </div>
+    </h2>
+    <form action="/signup" method="POST" class="ui large form">
+      <div class="ui stacked segment">
+         <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="fullname" class="fullname" placeholder="fullname" value="<%= typeof fullname != 'undefined' ? fullname: '' %>">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="user icon"></i>
+            <input type="text" name="username" placeholder="Username">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="envelope icon"></i>
+            <input type="text" name="emailid" placeholder="Email" value="<%= typeof emailid != 'undefined' ? emailid: '' %>">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="password" placeholder="Password" value="<%= typeof password != 'undefined' ? password: '' %>">
+          </div>
+        </div>
+        <div class="field">
+          <div class="ui left icon input">
+            <i class="lock icon"></i>
+            <input type="password" name="cpassword" placeholder="Confirm Password" value="<%= typeof cpassword != 'undefined' ? cpassword: '' %>">
+          </div>
+        </div>
+        <button style="background-color:rgb(65, 127, 186);" type="submit" name="signup" class="ui fluid large teal submit button">SignUp</button>
+      </div>
+     <% include ./partials/messages %>
+    </form>
+    <div class="ui message" >
+      Already Registered? <a href="/login" name="login" >Login</a>
+    </div>
+  </div>
+</div>
+</div>
+<% include ./partials/footer %>

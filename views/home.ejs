@@ -1,0 +1,65 @@
+
+<% include ./partials/header %>
+<div class="container" >
+ <nav class="navbar navbar-expand-lg sticky-top navbar-dark" style="color:black;font-size:bold;background-color:rgb(87, 159, 255);">
+                    <a class="navbar-brand" href="/home">Home</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon"></span>
+                    </button>
+                  
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                          <a class="nav-link" href="/post/<%= name %>">Post</a>
+                        </li>
+                      </ul>
+                      <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                         <a href="/logout" class="nav-link logout">Logout</a>
+                        </li>
+                      </ul>
+	              <span class="navbar-text">
+	              <i class="in flag"></i>
+	               Welcome <%= name %>
+	              </span>
+            </div>
+         </nav>
+</div>
+      <br />
+<div class="container">
+<% posts.forEach((post)=>{ %>
+	
+	<div class="ui raised very padded text container segment" style="overflow: auto;">
+    	<div class="ui header"><%= post.title %> </div>
+    	<div class="ui header"><em style="color:darkgrey;font-size:21px;">by <%= post.author.username %></em>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <span class="date"><%= post.created.toDateString() %> <i class="calendar alternate outline icon"></i></span> </div>
+	    <div class="ui raised very padded segment">
+		        <div class="item">
+		           
+		             <div class="description ">
+		               <p><%= post.postbody %></p>
+		             </div>
+		             <br />
+		             <br />
+		             <form id="like" action="/like/<%= post._id %>" method="POST" >
+		                
+						 <div class="ui labeled button" tabindex="0">
+							  <button type="submit" class="ui blue button">
+							    <i class="heart icon"></i> Like
+							  </button>
+							  <a class="ui basic blue button left pointing label" style="color:black;">
+							    <%= post.likes %>
+							  </a>
+						</div>
+					
+		             </form>
+		        </div>
+	    </div>
+	</div>
+
+<% })%>
+	
+</div>
+
+
+<% include ./partials/footer %>

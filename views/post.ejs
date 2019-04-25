@@ -1,0 +1,30 @@
+<% include ./partials/header %>
+<br />                  
+<div class="container" style="margin-top:7%;">
+	  <div class="ui main text container segment">
+		    <div class="ui huge header">Post</div>
+		     <form class="ui form" action="/post/<%= id %>" method="POST">
+		     <% include ./partials/messages %>
+
+		        <div class="field">
+		            <label>Title</label>
+		            <input type="text" name="title" placeholder="title.. " value="<%= typeof title!= 'undefined' ? title: '' %>">
+		        </div>
+		      
+		        <div class="field">
+		            <label>Post Content</label>
+		             <textarea name="postbody" placeholder="Post here.." value="<%= typeof postbody != 'undefined' ? postbody: '' %>"></textarea>
+		        </div>
+		        <div class="field" style="display:inline-block;">
+		            <input type="submit" class="ui inverted primary left floated button " value="submit">
+		       
+		    		<a href="/home" class="ui inverted primary left floated button" >Back</a>
+		        </div>
+		     
+		      
+		    </form>
+		  </div>
+ </div>
+
+
+<% include ./partials/footer %>
